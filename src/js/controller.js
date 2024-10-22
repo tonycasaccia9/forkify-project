@@ -51,7 +51,6 @@ const controlSearchResults = async function () {
 
     // Render iniital pagination
     paginationView.render(model.state.search);
-    console.log(model.state);
   } catch (error) {}
 };
 
@@ -61,8 +60,6 @@ const controlPagination = function (goToPage) {
 
   // Render new pagination
   paginationView.render(model.state.search);
-  console.log(model.state.search);
-  console.log('Pag controller');
 };
 
 const controlServings = function (newServings) {
@@ -94,10 +91,8 @@ const controlAddRecipe = async function (newRecipe) {
   try {
     // Load spinner
     addRecipeView.renderSpinner();
-    console.log(Object.entries(newRecipe));
     // Upload new recipe data
     await model.uploadRecipe(newRecipe);
-    console.log(model.state.recipe);
 
     // Render success message
     addRecipeView.renderMessage();
@@ -117,10 +112,6 @@ const controlAddRecipe = async function (newRecipe) {
     console.log('🛑', error);
     addRecipeView.renderError(error.message);
   }
-};
-
-const newFeature = function () {
-  console.log('Welcome to App!');
 };
 
 const init = function () {
